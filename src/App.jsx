@@ -430,6 +430,23 @@ function Topbar({user,setUser,session,equipment,onEndSession,onMenu,page,onSearc
 }
 
 /* ═══ LOGIN (real auth) ═══ */
+function RadVisionLogo({light=false,size=48}){
+  const c=light?"#fff":C.blue; const dim=light?"rgba(255,255,255,.65)":"rgba(10,102,194,.75)";
+  return <div className="flex items-center gap-3">
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="20" stroke={c} strokeWidth="1.8" opacity=".3"/>
+      <circle cx="24" cy="24" r="11" stroke={c} strokeWidth="2.2"/>
+      <circle cx="24" cy="24" r="4.5" fill={c}/>
+      <path d="M7 24 C10 14 17 8 24 8 C31 8 38 14 41 24" stroke={c} strokeWidth="2.2" strokeLinecap="round" fill="none"/>
+      <path d="M13 15 L9 7 M35 15 L39 7" stroke={c} strokeWidth="1.8" strokeLinecap="round"/>
+    </svg>
+    <div>
+      <div style={{fontFamily:mono,fontSize:size*.42,fontWeight:700,color:c,letterSpacing:".04em",lineHeight:1}}>RadVision</div>
+      <div style={{fontSize:size*.17,color:dim,letterSpacing:".06em",marginTop:3,textTransform:"uppercase"}}>Inspect · Track · Improve</div>
+    </div>
+  </div>;
+}
+
 function LoginPage({onSignIn}){
   const [username,setUsername]=useState("omar.harbi");
   const [password,setPassword]=useState("password");
@@ -439,29 +456,33 @@ function LoginPage({onSignIn}){
     catch(e){ setError(e.message||"Sign in failed"); setBusy(false); } };
   return <div className="min-h-screen flex" style={{background:C.canvas,fontFamily:sans}}>
     <div className="hidden lg:flex flex-col justify-between w-1/2 p-14 relative overflow-hidden"
-      style={{
-        backgroundImage:`linear-gradient(150deg, rgba(7,47,85,0.91) 0%, rgba(3,50,95,0.87) 55%, rgba(4,31,59,0.95) 100%), url(/hospital.jpg)`,
-        backgroundSize:"cover", backgroundPosition:"center"
-      }}>
-      <div className="absolute rounded-full" style={{width:460,height:460,right:-160,top:-160,background:"radial-gradient(circle, rgba(95,168,245,.14), transparent 70%)"}}/>
-      <div className="flex items-center gap-3 relative" style={{animation:`fadeRise .6s ${EASE} both`}}>
-        <img src="/mngha.png" alt="MNGHA" style={{height:64,objectFit:"contain",filter:"brightness(0) invert(1)",opacity:.92}}/>
+      style={{backgroundImage:`linear-gradient(150deg, rgba(7,47,85,0.92) 0%, rgba(3,50,95,0.88) 55%, rgba(4,31,59,0.96) 100%), url(/hospital.jpg)`,
+        backgroundSize:"cover",backgroundPosition:"center"}}>
+      <div className="absolute rounded-full" style={{width:500,height:500,right:-180,top:-180,background:"radial-gradient(circle, rgba(95,168,245,.12), transparent 70%)"}}/>
+      <div className="relative" style={{animation:`fadeRise .6s ${EASE} both`}}>
+        <RadVisionLogo light size={52}/>
       </div>
       <div className="relative" style={{animation:`fadeRise .7s ${EASE} .1s both`}}>
-        <div style={{fontFamily:mono,fontSize:11,fontWeight:600,color:"rgba(255,255,255,.5)",letterSpacing:".18em",textTransform:"uppercase",marginBottom:20}}>Improve safety · Ensure readiness</div>
+        <div style={{fontFamily:mono,fontSize:11,fontWeight:600,color:"rgba(255,255,255,.45)",letterSpacing:".16em",textTransform:"uppercase",marginBottom:20}}>Smart Radiology Inspection &amp; Asset Management</div>
         <h1 style={{fontSize:40,fontWeight:700,color:"#fff",lineHeight:1.14,letterSpacing:"-.028em"}}>Every machine<br/>accounted for,<br/>every shift.</h1>
         <p className="mt-5 max-w-md" style={{fontSize:15,color:"rgba(255,255,255,.68)",lineHeight:1.65}}>
           Daily inspections, NFC session control and maintenance escalation for portable and fixed radiology equipment across MNGHA facilities.</p>
+        <div className="flex gap-8 mt-10 pt-8" style={{borderTop:"1px solid rgba(255,255,255,.12)"}}>
+          {[["16","Assets tracked"],["94%","Inspection rate"],["3","Open tickets"]].map(([v,l])=>
+            <div key={l}><div style={{fontFamily:mono,fontSize:26,fontWeight:700,color:"#fff"}}>{v}</div>
+              <div style={{fontSize:11.5,color:"rgba(255,255,255,.5)",marginTop:2}}>{l}</div></div>)}
+        </div>
       </div>
-      <div className="relative" style={{fontSize:11.5,color:"rgba(255,255,255,.38)"}}>Ministry of National Guard Health Affairs · Radiology Department</div>
+      <div className="relative flex items-center gap-3">
+        <img src="/mngha.png" alt="MNGHA" style={{height:34,objectFit:"contain",filter:"brightness(0) invert(1)",opacity:.55}}/>
+        <div style={{fontSize:11.5,color:"rgba(255,255,255,.38)"}}>Ministry of National Guard Health Affairs</div>
+      </div>
     </div>
     <div className="flex-1 flex items-center justify-center p-6">
       <div className="w-full max-w-sm" style={{animation:`fadeRise .6s ${EASE} both`}}>
-        <div className="lg:hidden flex items-center justify-center mb-9">
-          <img src="/mngha.png" alt="MNGHA" style={{height:160,objectFit:"contain"}}/>
-        </div>
+        <div className="lg:hidden flex justify-center mb-9"><RadVisionLogo size={44}/></div>
         <h2 style={{fontSize:25,fontWeight:700,color:C.ink,letterSpacing:"-.022em"}}>Sign in</h2>
-        <p className="mt-2 mb-8" style={{fontSize:13.5,color:C.muted,lineHeight:1.6}}>Daily Radiology Inspection &amp; Equipment Management System</p>
+        <p className="mt-2 mb-8" style={{fontSize:13.5,color:C.muted,lineHeight:1.6}}>Smart Radiology Inspection &amp; Asset Management Platform</p>
         <div className="space-y-4">
           <Field label="Username"><input value={username} onChange={e=>setUsername(e.target.value)} onKeyDown={e=>e.key==="Enter"&&go()} style={inputStyle}/></Field>
           <Field label="Password"><input type="password" value={password} onChange={e=>setPassword(e.target.value)} onKeyDown={e=>e.key==="Enter"&&go()} style={inputStyle}/></Field>
@@ -472,10 +493,17 @@ function LoginPage({onSignIn}){
             <button style={{fontSize:13,color:C.blue,fontWeight:600}}>Forgot password</button>
             <span className="flex items-center gap-1.5" style={{fontSize:11.5,color:C.faint}}><Lock size={11}/> SSO enabled</span></div>
         </div>
+        <div className="mt-10 pt-5 flex items-center gap-3" style={{borderTop:`1px solid ${C.line}`}}>
+          <img src="/mngha.png" alt="MNGHA" style={{height:28,objectFit:"contain",opacity:.45}}/>
+          <span style={{fontSize:11,color:C.faint}}>Ministry of National Guard Health Affairs</span>
+        </div>
       </div>
     </div>
   </div>;
 }
+
+/* ═══ STAT CARD ═══ */
+
 
 /* ═══ STAT CARD ═══ */
 function StatCard({label,value,suffix="",tone=C.ink,spark,trend,sub,delay=0,loading}){
