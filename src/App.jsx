@@ -475,7 +475,7 @@ function LoginPage({onSignIn}){
     </div>
     <div className="flex-1 flex items-center justify-center p-6">
       <div className="w-full max-w-sm" style={{animation:`fadeRise .6s ${EASE} both`}}>
-        <img src="/logo.png" alt="RadVision" style={{height:90,objectFit:"contain",mixBlendMode:"multiply"}}/>
+        <img src="/logo-light.png" alt="RadVision" style={{height:90,objectFit:"contain",mixBlendMode:"multiply"}}/>
 
 
         <h2 style={{fontSize:25,fontWeight:700,color:C.ink,letterSpacing:"-.022em"}}>Sign in</h2>
