@@ -446,7 +446,14 @@ function LoginPage({onSignIn}){
         backgroundSize:"cover",backgroundPosition:"center"}}>
       <div className="absolute rounded-full" style={{width:500,height:500,right:-180,top:-180,background:"radial-gradient(circle, rgba(95,168,245,.12), transparent 70%)"}}/>
       <div className="relative" style={{animation:`fadeRise .6s ${EASE} both`}}>
-<img src="/logo.png" alt="RadVision" style={{height:90,objectFit:"contain",opacity:.92
+<div className="flex items-center gap-3">
+  <img src="/logo.png" alt="RadVision" style={{height:70,objectFit:"contain"}}/>
+  <div>
+    <div style={{fontFamily:mono,fontSize:22,fontWeight:700,color:"#fff",letterSpacing:".04em"}}>RadVision</div>
+    <div style={{fontSize:12,color:"rgba(255,255,255,.6)",letterSpacing:".12em",textTransform:"uppercase"}}>Inspect · Track · Improve</div>
+  </div>
+</div>
+
 }}/>
 
       </div>
