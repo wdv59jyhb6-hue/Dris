@@ -475,7 +475,8 @@ function LoginPage({onSignIn}){
     </div>
     <div className="flex-1 flex items-center justify-center p-6">
       <div className="w-full max-w-sm" style={{animation:`fadeRise .6s ${EASE} both`}}>
-        <img src="/logo.png" alt="RadVision" style={{height:90,objectFit:"contain"}}/>
+        <img src="/logo.png" alt="RadVision" style={{height:90,objectFit:"contain",mixBlendMode:"multiply"}}/>
+
 
         <h2 style={{fontSize:25,fontWeight:700,color:C.ink,letterSpacing:"-.022em"}}>Sign in</h2>
         <p className="mt-2 mb-8" style={{fontSize:13.5,color:C.muted,lineHeight:1.6}}>Smart Radiology Inspection &amp; Asset Management Platform</p>
