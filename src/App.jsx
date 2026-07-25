@@ -454,7 +454,7 @@ function LoginPage({onSignIn}){
   </div>
 </div>
 
-}}/>
+
 
       </div>
       <div className="relative" style={{animation:`fadeRise .7s ${EASE} .1s both`}}>
