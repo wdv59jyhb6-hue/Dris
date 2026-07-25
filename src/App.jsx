@@ -473,7 +473,8 @@ function LoginPage({onSignIn}){
         <div style={{fontSize:11.5,color:"rgba(255,255,255,.38)"}}>Ministry of National Guard Health Affairs</div>
       </div>
     </div>
-  <div className="flex-1 flex items-center justify-center p-6" style={{backgroundImage:"linear-gradient(rgba(7,47,85,0.75), rgba(7,47,85,0.75)), url(/hospital.jpg)",backgroundSize:"cover",backgroundPosition:"center"}}>
+  <div className="flex-1 flex items-center justify-center p-6">
+
 
 
       <div className="w-full max-w-sm" style={{animation:`fadeRise .6s ${EASE} both`}}>
