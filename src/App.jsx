@@ -432,20 +432,23 @@ function Topbar({user,setUser,session,equipment,onEndSession,onMenu,page,onSearc
 /* ═══ LOGIN (real auth) ═══ */
 function RadVisionLogo({light=false,size=48}){
   const c=light?"#fff":C.blue; const dim=light?"rgba(255,255,255,.65)":"rgba(10,102,194,.75)";
+  const s=size;
   return <div className="flex items-center gap-3">
-    <svg width={size} height={size} viewBox="0 0 48 48" fill="none">
-      <circle cx="24" cy="24" r="20" stroke={c} strokeWidth="1.8" opacity=".3"/>
-      <circle cx="24" cy="24" r="11" stroke={c} strokeWidth="2.2"/>
-      <circle cx="24" cy="24" r="4.5" fill={c}/>
-      <path d="M7 24 C10 14 17 8 24 8 C31 8 38 14 41 24" stroke={c} strokeWidth="2.2" strokeLinecap="round" fill="none"/>
-      <path d="M13 15 L9 7 M35 15 L39 7" stroke={c} strokeWidth="1.8" strokeLinecap="round"/>
+    <svg width={s} height={s} viewBox="0 0 56 56" fill="none">
+      <path d="M10 8 L10 48" stroke={c} strokeWidth="5" strokeLinecap="round"/>
+      <path d="M10 8 L26 8 C34 8 38 12 38 19 C38 26 34 30 26 30 L10 30" stroke={c} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M24 30 L38 48" stroke={c} strokeWidth="5" strokeLinecap="round"/>
+      <ellipse cx="38" cy="19" rx="13" ry="8" stroke={c} strokeWidth="2" opacity=".5"/>
+      <circle cx="38" cy="19" r="4.5" stroke={c} strokeWidth="2"/>
+      <circle cx="38" cy="19" r="2" fill={c}/>
     </svg>
     <div>
-      <div style={{fontFamily:mono,fontSize:size*.42,fontWeight:700,color:c,letterSpacing:".04em",lineHeight:1}}>RadVision</div>
-      <div style={{fontSize:size*.17,color:dim,letterSpacing:".06em",marginTop:3,textTransform:"uppercase"}}>Inspect · Track · Improve</div>
+      <div style={{fontFamily:mono,fontSize:s*.38,fontWeight:700,color:c,letterSpacing:".04em",lineHeight:1}}>RadVision</div>
+      <div style={{fontSize:s*.155,color:dim,letterSpacing:".06em",marginTop:3,textTransform:"uppercase"}}>Inspect · Track · Improve</div>
     </div>
   </div>;
 }
+
 
 function LoginPage({onSignIn}){
   const [username,setUsername]=useState("omar.harbi");
