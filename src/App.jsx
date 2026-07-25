@@ -432,18 +432,21 @@ function Topbar({user,setUser,session,equipment,onEndSession,onMenu,page,onSearc
 /* ═══ LOGIN (real auth) ═══ */
 function LoginPage({onSignIn}){
   const [username,setUsername]=useState("omar.harbi");
-  const [password,setPassword]=useState("dris2026");
+  const [password,setPassword]=useState("password");
   const [busy,setBusy]=useState(false); const [error,setError]=useState(null);
   const go=async()=>{ setBusy(true); setError(null);
     try{ await onSignIn(username.trim(),password); }
     catch(e){ setError(e.message||"Sign in failed"); setBusy(false); } };
   return <div className="min-h-screen flex" style={{background:C.canvas,fontFamily:sans}}>
     <div className="hidden lg:flex flex-col justify-between w-1/2 p-14 relative overflow-hidden"
-      style={{background:`linear-gradient(150deg, ${C.railTop} 0%, ${C.rail} 60%, #041F3B 100%)`}}>
-      <div className="absolute rounded-full" style={{width:460,height:460,right:-160,top:-160,background:"radial-gradient(circle, rgba(95,168,245,.16), transparent 70%)"}}/>
+      style={{
+        backgroundImage:`linear-gradient(150deg, rgba(7,47,85,0.91) 0%, rgba(3,50,95,0.87) 55%, rgba(4,31,59,0.95) 100%), url(/hospital.jpg)`,
+        backgroundSize:"cover", backgroundPosition:"center"
+      }}>
+      <div className="absolute rounded-full" style={{width:460,height:460,right:-160,top:-160,background:"radial-gradient(circle, rgba(95,168,245,.14), transparent 70%)"}}/>
       <div className="flex items-center gap-3 relative" style={{animation:`fadeRise .6s ${EASE} both`}}>
-        <Logo size={44} light/><div><div style={{fontFamily:mono,fontSize:21,fontWeight:700,color:"#fff",letterSpacing:".1em"}}>DRIS</div>
-          <div style={{fontSize:11,color:"rgba(255,255,255,.55)"}}>dris.health</div></div></div>
+        <img src="/mngha.png" alt="MNGHA" style={{height:64,objectFit:"contain",filter:"brightness(0) invert(1)",opacity:.92}}/>
+      </div>
       <div className="relative" style={{animation:`fadeRise .7s ${EASE} .1s both`}}>
         <div style={{fontFamily:mono,fontSize:11,fontWeight:600,color:"rgba(255,255,255,.5)",letterSpacing:".18em",textTransform:"uppercase",marginBottom:20}}>Improve safety · Ensure readiness</div>
         <h1 style={{fontSize:40,fontWeight:700,color:"#fff",lineHeight:1.14,letterSpacing:"-.028em"}}>Every machine<br/>accounted for,<br/>every shift.</h1>
@@ -454,9 +457,9 @@ function LoginPage({onSignIn}){
     </div>
     <div className="flex-1 flex items-center justify-center p-6">
       <div className="w-full max-w-sm" style={{animation:`fadeRise .6s ${EASE} both`}}>
-        <div className="lg:hidden flex items-center gap-3 mb-9"><Logo size={42}/><div>
-          <div style={{fontFamily:mono,fontSize:20,fontWeight:700,color:C.ink,letterSpacing:".1em"}}>DRIS</div>
-          <div style={{fontSize:11.5,color:C.muted}}>dris.health</div></div></div>
+        <div className="lg:hidden flex items-center justify-center mb-9">
+          <img src="/mngha.png" alt="MNGHA" style={{height:60,objectFit:"contain"}}/>
+        </div>
         <h2 style={{fontSize:25,fontWeight:700,color:C.ink,letterSpacing:"-.022em"}}>Sign in</h2>
         <p className="mt-2 mb-8" style={{fontSize:13.5,color:C.muted,lineHeight:1.6}}>Daily Radiology Inspection &amp; Equipment Management System</p>
         <div className="space-y-4">
@@ -469,8 +472,6 @@ function LoginPage({onSignIn}){
             <button style={{fontSize:13,color:C.blue,fontWeight:600}}>Forgot password</button>
             <span className="flex items-center gap-1.5" style={{fontSize:11.5,color:C.faint}}><Lock size={11}/> SSO enabled</span></div>
         </div>
-        <p className="mt-8 pt-5" style={{fontSize:11.5,color:C.faint,borderTop:`1px solid ${C.line}`,lineHeight:1.6}}>
-          Demo accounts (password <span style={{fontFamily:mono}}>dris2026</span>): omar.harbi · hadeel.qahtani · khalid.enezi · sara.dosari</p>
       </div>
     </div>
   </div>;
