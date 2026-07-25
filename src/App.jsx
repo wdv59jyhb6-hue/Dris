@@ -446,11 +446,12 @@ function LoginPage({onSignIn}){
         backgroundSize:"cover",backgroundPosition:"center"}}>
       <div className="absolute rounded-full" style={{width:500,height:500,right:-180,top:-180,background:"radial-gradient(circle, rgba(95,168,245,.12), transparent 70%)"}}/>
       <div className="relative" style={{animation:`fadeRise .6s ${EASE} both`}}>
-<img src="/logo.png" alt="RadVision" style={{height:90,objectFit:"contain",filter:"brightness(0) invert(1)"}}/>
+<img src="/logo.png" alt="RadVision" style={{height:90,objectFit:"contain",opacity:.92
+}}/>
 
       </div>
       <div className="relative" style={{animation:`fadeRise .7s ${EASE} .1s both`}}>
-        <div style={{fontFamily:mono,fontSize:11,fontWeight:600,color:"rgba(255,255,255,.45)",letterSpacing:".16em",textTransform:"uppercase",marginBottom:20}}>Smart Radiology Inspection &amp; Asset Management</div>
+        <div style={{fontFamily:mono,fontSize:11,fontWeight:600,color:"rgba(255,255,255,.45)",letterSpacing:".16em",textTransform:"uppercase",marginBottom:20}}>Smart Radiology Inspection &amp; Asset Management Platform</div>
         <h1 style={{fontSize:40,fontWeight:700,color:"#fff",lineHeight:1.14,letterSpacing:"-.028em"}}>Every machine<br/>accounted for,<br/>every shift.</h1>
         <p className="mt-5 max-w-md" style={{fontSize:15,color:"rgba(255,255,255,.68)",lineHeight:1.65}}>
           Daily inspections, NFC session control and maintenance escalation for portable and fixed radiology equipment across MNGHA facilities.</p>
@@ -461,7 +462,7 @@ function LoginPage({onSignIn}){
         </div>
       </div>
       <div className="relative flex items-center gap-3">
-        <img src="/mngha.png" alt="MNGHA" style={{height:34,objectFit:"contain",filter:"brightness(0) invert(1)",opacity:.55}}/>
+        <img src="/mngha.png" alt="MNGHA" style={{height:34,objectFit:"contain",opacity:.55}}/>
         <div style={{fontSize:11.5,color:"rgba(255,255,255,.38)"}}>Ministry of National Guard Health Affairs</div>
       </div>
     </div>
