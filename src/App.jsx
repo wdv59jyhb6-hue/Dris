@@ -430,24 +430,7 @@ function Topbar({user,setUser,session,equipment,onEndSession,onMenu,page,onSearc
 }
 
 /* ═══ LOGIN (real auth) ═══ */
-function RadVisionLogo({light=false,size=48}){
-  const c=light?"#fff":C.blue; const dim=light?"rgba(255,255,255,.65)":"rgba(10,102,194,.75)";
-  const s=size;
-  return <div className="flex items-center gap-3">
-    <svg width={s} height={s} viewBox="0 0 56 56" fill="none">
-      <path d="M10 8 L10 48" stroke={c} strokeWidth="5" strokeLinecap="round"/>
-      <path d="M10 8 L26 8 C34 8 38 12 38 19 C38 26 34 30 26 30 L10 30" stroke={c} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M24 30 L38 48" stroke={c} strokeWidth="5" strokeLinecap="round"/>
-      <ellipse cx="38" cy="19" rx="13" ry="8" stroke={c} strokeWidth="2" opacity=".5"/>
-      <circle cx="38" cy="19" r="4.5" stroke={c} strokeWidth="2"/>
-      <circle cx="38" cy="19" r="2" fill={c}/>
-    </svg>
-    <div>
-      <div style={{fontFamily:mono,fontSize:s*.38,fontWeight:700,color:c,letterSpacing:".04em",lineHeight:1}}>RadVision</div>
-      <div style={{fontSize:s*.155,color:dim,letterSpacing:".06em",marginTop:3,textTransform:"uppercase"}}>Inspect · Track · Improve</div>
-    </div>
-  </div>;
-}
+
 
 
 function LoginPage({onSignIn}){
@@ -463,7 +446,8 @@ function LoginPage({onSignIn}){
         backgroundSize:"cover",backgroundPosition:"center"}}>
       <div className="absolute rounded-full" style={{width:500,height:500,right:-180,top:-180,background:"radial-gradient(circle, rgba(95,168,245,.12), transparent 70%)"}}/>
       <div className="relative" style={{animation:`fadeRise .6s ${EASE} both`}}>
-        <RadVisionLogo light size={52}/>
+<img src="/logo.png" alt="RadVision" style={{height:90,objectFit:"contain",filter:"brightness(0) invert(1)"}}/>
+
       </div>
       <div className="relative" style={{animation:`fadeRise .7s ${EASE} .1s both`}}>
         <div style={{fontFamily:mono,fontSize:11,fontWeight:600,color:"rgba(255,255,255,.45)",letterSpacing:".16em",textTransform:"uppercase",marginBottom:20}}>Smart Radiology Inspection &amp; Asset Management</div>
@@ -483,7 +467,8 @@ function LoginPage({onSignIn}){
     </div>
     <div className="flex-1 flex items-center justify-center p-6">
       <div className="w-full max-w-sm" style={{animation:`fadeRise .6s ${EASE} both`}}>
-        <div className="lg:hidden flex justify-center mb-9"><RadVisionLogo size={44}/></div>
+        <div <img src="/logo.png" alt="RadVision" style={{height:90,objectFit:"contain"}}/>
+
         <h2 style={{fontSize:25,fontWeight:700,color:C.ink,letterSpacing:"-.022em"}}>Sign in</h2>
         <p className="mt-2 mb-8" style={{fontSize:13.5,color:C.muted,lineHeight:1.6}}>Smart Radiology Inspection &amp; Asset Management Platform</p>
         <div className="space-y-4">
