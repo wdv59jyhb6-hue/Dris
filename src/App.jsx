@@ -458,7 +458,7 @@ function LoginPage({onSignIn}){
     <div className="flex-1 flex items-center justify-center p-6">
       <div className="w-full max-w-sm" style={{animation:`fadeRise .6s ${EASE} both`}}>
         <div className="lg:hidden flex items-center justify-center mb-9">
-          <img src="/mngha.png" alt="MNGHA" style={{height:60,objectFit:"contain"}}/>
+          <img src="/mngha.png" alt="MNGHA" style={{height:160,objectFit:"contain"}}/>
         </div>
         <h2 style={{fontSize:25,fontWeight:700,color:C.ink,letterSpacing:"-.022em"}}>Sign in</h2>
         <p className="mt-2 mb-8" style={{fontSize:13.5,color:C.muted,lineHeight:1.6}}>Daily Radiology Inspection &amp; Equipment Management System</p>
